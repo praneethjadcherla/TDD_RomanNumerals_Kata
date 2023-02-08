@@ -69,4 +69,32 @@ public class RomanNumeralsTest {
         assertEquals("No need to convert number above 3000",romanNumerals.convertNumberToRomanNumeral(3001));
     }
 
+    @Test
+    public void checkRomanNumeralToNumberConversion(){
+        RomanNumerals romanNumerals=new RomanNumerals();
+
+        assertEquals(1,romanNumerals.convertRomanNumeralToNumber("I"));
+    }
+
+    @Test
+    public void checkVToNumberConversion(){
+        RomanNumerals romanNumerals=new RomanNumerals();
+
+        assertEquals(5,romanNumerals.convertRomanNumeralToNumber("V"));
+    }
+
+    @Test
+    public void checkNinetyNineToNumberConversion(){
+        RomanNumerals romanNumerals=new RomanNumerals();
+
+        assertEquals(99,romanNumerals.convertRomanNumeralToNumber("IC"));
+    }
+
+    @Test
+    public void checkRoman490ToNumberConversion(){
+        RomanNumerals romanNumerals=new RomanNumerals();
+
+        assertEquals(490,romanNumerals.convertRomanNumeralToNumber("XD"));
+    }
+
 }
