@@ -1,6 +1,8 @@
 package com.techreturners.TDDExercises;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -66,7 +68,14 @@ public class RomanNumeralsTest {
     public void checkInvalidNumberToRomanNumeral(){
         RomanNumerals romanNumerals=new RomanNumerals();
 
-        assertEquals("No need to convert number above 3000",romanNumerals.convertNumberToRomanNumeral(3001));
+        assertEquals("Number cannot be converted to Roman Numeral",romanNumerals.convertNumberToRomanNumeral(3001));
+    }
+
+    @Test
+    public void checkInvalid0NumberToRomanNumeral(){
+        RomanNumerals romanNumerals=new RomanNumerals();
+
+        assertEquals("Number cannot be converted to Roman Numeral",romanNumerals.convertNumberToRomanNumeral(0));
     }
 
     @Test
@@ -95,6 +104,20 @@ public class RomanNumeralsTest {
         RomanNumerals romanNumerals=new RomanNumerals();
 
         assertEquals(490,romanNumerals.convertRomanNumeralToNumber("XD"));
+    }
+
+    @Test
+    public void checkInvalidRomanToNumberConversion(){
+        RomanNumerals romanNumerals=new RomanNumerals();
+
+        assertEquals(0,romanNumerals.convertRomanNumeralToNumber(""));
+    }
+
+    @Test
+    public void checkHigherRomanToNumberConversion(){
+        RomanNumerals romanNumerals=new RomanNumerals();
+
+        assertEquals(2950,romanNumerals.convertRomanNumeralToNumber("LMMM"));
     }
 
 }
